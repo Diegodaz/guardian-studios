@@ -1,0 +1,770 @@
+/*!
+  * Item: Willy Wonka Theme
+  * Description: Personal Portfolio Website Template
+  * Author/Developer: Sujal
+  * Version: v1
+  */
+@import url('https://fonts.googleapis.com/css?family=Raleway:300&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Monoton&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Poppins:500&display=swap');
+*{
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+}
+
+.portfolio-text button{
+    font-size: 16px;
+    opacity: .8;
+    font-family: poppins;
+    font-weight: 200;
+    padding: 10px 20px;
+    background:transparent;
+    color:whitesmoke;
+    transition: all .4s ease;
+    outline: none;
+    margin: 20px;
+    border: 1.5px solid #001380;
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+    transition: all .4s ease;
+    background-color: #004080;
+}
+.portfolio-text button::before{
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 200%;
+    transform: rotate(-15deg) translateY(-20px);
+    top: 0;
+    left: 0;
+    z-index: 3;
+    background: #ff6600;
+    border: 1.5px solid #ff6600;
+    transition: all .7s ease;
+}
+.portfolio-text button:hover{
+    opacity: 1;
+    color:whitesmoke;
+    border: 1.5px solid #ff6600;
+}
+ button:hover .index{
+     position: relative;
+    z-index: 4;
+}
+.portfolio-text button:hover::before{
+    opacity: 1;
+    width: 120%;
+}
+
+::-webkit-scrollbar{
+    width: 4px;
+    color:#ff6600;
+    transition: all .4s ease;
+}
+::-webkit-scrollbar-thumb {
+    background: #ff6600; 
+    border-radius: 4px;
+    width: 4px;
+    transition: all .4s ease;
+  }
+  ::-webkit-scrollbar-track {
+    background: #101010; 
+    border-radius: 4px;
+    width: 4px;
+  }
+  input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+  html{
+    background: #101010;
+    
+  }
+  #loader{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      height:100vh;
+      position: fixed;
+      z-index:100;
+      font-family: poppins;
+      background-color: #202020;
+      color: whitesmoke;
+      font-size: 70px;
+      width: 100%;
+  }
+body{
+    /*filter: grayscale(100%);*/
+    user-select: none;
+    height: auto;
+    overflow-x: hidden;
+    width: 100%;
+    background: #171717;
+}
+#header{
+    background:#171717;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    animation: scale 1.5s ease;
+    position:relative;
+    display: block;
+}
+
+gsap.to('#header',0,{display:"block",delay:1})
+
+#particles{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    z-index: 0;
+}
+
+.header-content{
+    height: 100vh;
+    width: 100%;
+    float: left;
+    display: flex;
+    position: absolute;
+    top: 0;
+    align-items: center;
+    justify-content: center;
+    color: whitesmoke;
+    font-family: raleway;
+    font-weight: 400;
+    letter-spacing: 1px;
+    flex-direction: column;
+    font-size: 50px;
+    z-index: 2;
+}
+
+.header-content-box{
+    z-index: 2;
+    position: relative;
+    text-align: center;
+    padding: 20px;
+}
+
+.firstline{
+    font-size: 80px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 8px;
+    margin-bottom: 20px;
+}
+
+.secondline{
+    font-size: 35px;
+    font-weight: 300;
+    letter-spacing: 3px;
+    color: rgba(255, 255, 255, 0.9);
+    margin-top: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.txt-rotate{
+    display: inline-block;
+    font-weight: 500;
+    color: #ff6600;
+    min-width: 200px;
+    text-align: left;
+}
+
+.slash{
+    color: #ff6600;
+    font-size: 40px;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 49% {
+        opacity: 1;
+    }
+    50%, 100% {
+        opacity: 0;
+    }
+}
+
+/* Responsive para el contenido del header */
+@media only screen and (max-width: 550px) {
+    .firstline{
+        font-size: 40px;
+        letter-spacing: 4px;
+    }
+    
+    .secondline{
+        font-size: 18px;
+        letter-spacing: 1.5px;
+    }
+    
+    .slash{
+        font-size: 20px;
+    }
+    
+    .txt-rotate{
+        min-width: 100px;
+        font-size: 18px;
+    }
+}
+
+@media all and (max-width: 1025px) and (min-width: 551px) {
+    .firstline{
+        font-size: 60px;
+        letter-spacing: 6px;
+    }
+    
+    .secondline{
+        font-size: 28px;
+        letter-spacing: 2px;
+    }
+    
+    .slash{
+        font-size: 30px;
+    }
+    
+    .txt-rotate{
+        min-width: 150px;
+        font-size: 28px;
+    }
+}
+
+#about{
+    background-color: #101010;
+    display: none;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    padding-top: 80px;
+}
+
+#videogame{
+    display: none;
+    height: auto;
+    overflow-x: hidden;
+    background-color: #101010;
+    width: 100%;
+    color:whitesmoke;
+    padding-top: 80px;
+}
+
+#final-project{
+    display: none;
+    height: auto;
+    overflow-x: hidden;
+    background-color: #101010;
+    width: 100%;
+    color:whitesmoke;
+    padding-top: 80px;
+}
+
+/* === Estructura del header de navegación === */
+#navigation-content {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 80px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+    background: rgba(0,0,0,0.9);
+    padding: 0 30px;
+    overflow: visible;
+    box-sizing: border-box;
+}
+
+/* Logo - Primer hijo */
+#navigation-content .logo {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-right: 50px;
+}
+
+#navigation-content .logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    opacity: 0.8;
+    transition: all 0.4s ease;
+}
+
+#navigation-content .logo img:hover {
+    opacity: 1;
+    transform: rotate(-45deg);
+}
+
+/* Menú principal - Segundo hijo */
+.main-menu {
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+/* Lista de navegación */
+.main-menu .navigation-links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 50px;
+}
+
+.main-menu .navigation-links li {
+    margin: 0;
+    padding: 0;
+}
+
+/* Enlaces de navegación horizontal */
+.nav-link-horizontal {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    letter-spacing: 1.5px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    font-family: poppins;
+    padding: 10px 15px;
+    white-space: nowrap;
+}
+
+.nav-link-horizontal:hover {
+    color: #ff6600 !important;
+    transform: scale(1.05) !important;
+    opacity: 1;
+}
+
+.nav-link-horizontal.active {
+    color: #ff6600 !important;
+    opacity: 1;
+    border-bottom: 2px solid #ff6600;
+}
+
+/* Ocultar selector de colores */
+.color-changer {
+    display: none !important;
+}
+
+/* Estilos para la sección de portfolio/videojuego */
+.portfolio-header {
+    text-align: center;
+    padding: 0 15px;
+    margin-bottom: 50px;
+}
+
+.portfolio-header h2 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.portfolio-header p {
+    font-size: 1.2rem;
+    color: #ccc;
+    margin-bottom: 10px;
+}
+
+.portfolio-header .caption {
+    font-size: 1.1rem;
+    color: #ccc;
+    font-weight: 500;
+    margin-bottom: 50px;
+}
+
+.portfolio-header .caption .color {
+    font-weight: 700;
+}
+
+.portfolio {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 50px;
+    align-items: center;
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.portfolio-image {
+    flex: 0.8;
+    min-width: 280px;
+}
+
+.portfolio-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.portfolio-text {
+    flex: 1.2;
+    min-width: 320px;
+    background: #1a1a1a;
+    padding: 25px;
+    border-radius: 12px;
+}
+
+.portfolio-text h2 {
+    color: #bc3908;
+    margin-bottom: 15px;
+    font-size: 1.8rem;
+    font-family: poppins;
+}
+
+.portfolio-text p {
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 0.95rem;
+}
+
+/* Responsive para portfolio */
+@media only screen and (max-width: 768px) {
+    .portfolio {
+        flex-direction: column;
+        width: 95%;
+    }
+    
+    .portfolio-image,
+    .portfolio-text {
+        min-width: 100%;
+    }
+}
+
+/* === Estilos para la sección de timeline/proyecto final === */
+
+/* 1. Cabecera general */
+.blog-header {
+    text-align: center;
+    padding: 0 15px;
+}
+
+.blog-header h2 {
+    font-size: 4rem;
+    color: #fff;
+    font-weight: 700;
+}
+
+.blog-header h2 .color {
+    color: #bc3908;
+}
+
+.blog-header p {
+    font-size: 1.3rem;
+    color: #ccc;
+    margin-bottom: 80px;
+}
+
+/* 2. Contenedor principal y línea central */
+.wrapper {
+    max-width: 1200px;
+    margin: 0 auto 100px auto;
+    padding: 0 20px;
+    position: relative;
+}
+
+.wrapper .center-line {
+    position: absolute;
+    width: 6px;
+    background: #333;
+    left: 50%;
+    top: 0;
+    height: 100%;
+}
+
+/* 3. Cajas de contenido */
+.wrapper .row {
+    display: flex;
+    margin: 50px 0;
+}
+
+.row-1 {
+    justify-content: flex-start;
+}
+
+.row-2 {
+    justify-content: flex-end;
+}
+
+.wrapper .row section {
+    background: #222;
+    width: calc(50% - 60px);
+    padding: 30px;
+    border-radius: 8px;
+    position: relative;
+}
+
+/* Flechas */
+.row section::before {
+    content: "";
+    position: absolute;
+    background: #222;
+    border-top: 1px solid #333;
+    border-right: 1px solid #333;
+    height: 20px;
+    width: 20px;
+    top: 35px;
+}
+
+.row-1 section::before {
+    right: -11px;
+    transform: rotate(45deg);
+}
+
+.row-2 section::before {
+    left: -11px;
+    transform: rotate(-135deg);
+}
+
+/* 4. Íconos */
+.wrapper .row section .icon {
+    position: absolute;
+    background: #fff;
+    height: 50px;
+    width: 50px;
+    line-height: 50px;
+    text-align: center;
+    border-radius: 50%;
+    color: #bc3908;
+    font-size: 24px;
+    top: 30px;
+    border: 2px solid #bc3908;
+    box-shadow: 0 0 0 4px rgba(255,102,0,0.3);
+}
+
+.row-1 section .icon {
+    right: -75px;
+}
+
+.row-2 section .icon {
+    left: -75px;
+}
+
+/* 5. Texto dentro de las cajas */
+.row section .details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.row section .details .title {
+    font-size: 1.6rem;
+    color: #fff;
+    font-weight: 600;
+    font-family: poppins;
+}
+
+.row section .details span {
+    color: #aaa;
+    font-size: 0.9rem;
+}
+
+.row section p {
+    color: #eee;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 15px 0;
+}
+
+/* 6. Botones */
+.botton-container {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.row section .bottom {
+    display: inline-block;
+}
+
+.row section .bottom a {
+    background: #fff;
+    color: #bc3908;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: 500;
+    border: 1px solid #bc3908;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.row section .bottom a:hover {
+    background: #bc3908;
+    color: #fff;
+}
+
+/* Flecha de scroll hacia arriba */
+.center-line .scroll-icon {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #bc3908;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-decoration: none;
+}
+
+/* 7. Media Queries responsivo */
+@media only screen and (max-width: 768px) {
+    .wrapper .center-line {
+        left: 30px;
+    }
+    
+    .wrapper .row {
+        margin: 30px 0;
+    }
+    
+    .wrapper .row-1,
+    .wrapper .row-2 {
+        justify-content: flex-end;
+    }
+    
+    .wrapper .row section {
+        width: 100%;
+    }
+    
+    .row-1 section::before,
+    .row-2 section::before {
+        left: 20px;
+        transform: rotate(-135deg);
+    }
+    
+    .row-1 section .icon,
+    .row-2 section .icon {
+        left: -43px;
+    }
+}
+
+/* --- Estilos de la Sección Nosotros (#about) --- */
+
+/* 1. Estilo del título "Sobre Nosotros" */
+.about-header {
+    text-align: center;
+    padding: 0 15px;
+    margin-bottom: 60px;
+    font-size: 3rem;
+    font-weight: 700;
+    color: #fff;
+}
+
+/* Estilo del subtítulo "Conocenos un poco más" */
+.about-header .header-caption {
+    display: block;
+    font-size: 1.1rem;
+    color: #ccc;
+    font-weight: 500;
+    margin-top: 10px;
+}
+
+.about-header .color {
+    color: #bc3908;
+}
+
+/* 2. Contenedor que envuelve las 3 tarjetas */
+.services-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* 3. Estilo para cada tarjeta individual */
+.service {
+    flex-basis: 300px;
+    flex-grow: 1;
+    max-width: 350px;
+    background: #1a1a1a;
+    padding: 30px 20px;
+    border-radius: 15px;
+    text-align: center;
+    border: 1px solid #333;
+    transition: all 0.3s ease;
+}
+
+.service:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    background: #bc3908;
+    border: 1px solid #bc3908;
+}
+
+/* 4. Estilo de la imagen dentro de la tarjeta */
+.service-img {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 20px auto;
+    border-radius: 50%;
+    border: 4px solid #bc3908;
+    overflow: hidden;
+    padding: 5px;
+    transition: all 0.3s ease;
+}
+
+.service:hover .service-img {
+    border: 4px solid #fff;
+}
+
+.service-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+/* 5. Estilo del texto dentro de la tarjeta */
+.service-description h2 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 10px;
+    font-family: poppins;
+    transition: all 0.3s ease;
+}
+
+.service:hover .service-description h2 {
+    color: #fff;
+}
+
+.service-description p {
+    font-size: 1rem;
+    color: #ccc;
+    transition: all 0.3s ease;
+}
+
+.service:hover .service-description p {
+    color: #f0f0f0;
+}
