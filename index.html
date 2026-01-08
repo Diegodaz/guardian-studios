@@ -41,6 +41,190 @@
       font-size: 18px;
       font-family: poppins;
     }
+    /* Estilos para el grid de flip cards */
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto 50px auto;
+      justify-items: center;
+    }
+
+    .flip-card {
+      background-color: transparent;
+      width: 100%;
+      max-width: 320px;
+      height: 350px;
+      perspective: 1000px;
+    }
+
+    .flip-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      transition: transform 0.6s ease;
+      transform-style: preserve-3d;
+    }
+
+    .flip-card:hover .flip-card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .flip-card-front, .flip-card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      background: #1a1a1a;
+      border: 1px solid #333;
+      border-radius: 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+
+    .flip-card-front {
+      color: whitesmoke;
+      justify-content: flex-start;
+      padding: 0;
+    }
+
+    .flip-card-front img {
+      width: 100%;
+      height: 70%;
+      object-fit: cover;
+      border-radius: 12px 12px 0 0;
+      filter: brightness(0.85);
+      transition: filter 0.3s ease;
+    }
+
+    .flip-card:hover .flip-card-front img {
+      filter: brightness(1);
+    }
+
+    .flip-card-front h3 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: whitesmoke;
+      font-family: poppins;
+      padding: 20px 15px;
+      margin: 0;
+      text-align: center;
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .flip-card-back {
+      background: #1a1a1a;
+      color: whitesmoke;
+      transform: rotateY(180deg);
+      padding: 25px 20px;
+      justify-content: flex-start;
+    }
+
+    .flip-card:hover .flip-card-front,
+    .flip-card:hover .flip-card-back {
+      border-color: #bc3908;
+    }
+
+    .flip-card-back h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #bc3908;
+      font-family: poppins;
+      margin-bottom: 15px;
+    }
+
+    .flip-card-back p {
+      font-size: 0.9rem;
+      color: #ccc;
+      line-height: 1.7;
+      text-align: center;
+      flex: 1;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 15px;
+      padding: 10px 20px;
+      background-color: #bc3908;
+      color: whitesmoke;
+      text-decoration: none;
+      border-radius: 5px;
+      font-family: poppins;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: whitesmoke;
+      color: #bc3908;
+    }
+
+    /* Flip card con icono (para proyecto final) */
+    .flip-card-front.icon-front {
+      justify-content: center;
+      padding: 30px;
+    }
+
+    .flip-card-front.icon-front .card-icon {
+      font-size: 80px;
+      color: #bc3908;
+      margin-bottom: 20px;
+    }
+
+    .flip-card-front.icon-front .card-date {
+      font-size: 1rem;
+      color: #ccc;
+      margin-top: 10px;
+      font-family: poppins;
+    }
+
+    .flip-card-front.icon-front h3 {
+      padding: 10px;
+      flex: 0;
+    }
+
+    /* Flip card de título (para videojuego) */
+    .flip-card-front.title-front {
+      justify-content: center;
+      padding: 25px;
+      background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+    }
+
+    .flip-card-front.title-front .title-logo {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+      margin-bottom: 15px;
+      filter: brightness(0.9);
+      border-radius: 0;
+    }
+
+    .flip-card-front.title-front h2 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #bc3908;
+      font-family: poppins;
+      margin: 10px 0;
+      text-align: center;
+    }
+
+    .flip-card-front.title-front .subtitle {
+      font-size: 0.9rem;
+      color: #ccc;
+      font-family: poppins;
+      margin-top: 5px;
+    }
 </style>
 
 
@@ -104,7 +288,7 @@
         <!--HomePage End-->
         <!--Main-Section End-->
         <!--about-->
-        <div id="about" style="margin-left: 0; margin-top: 80px;">
+        <div id="about" style="margin-left: 0; margin-top: 0px;">
             <div class="color-changer">
                 <div class="color-panel">
                     <img src="images/gear.png" alt="">
@@ -168,7 +352,7 @@
         </div>
         <!--about end-->
         <!--videogame-->
-        <div id="videogame" style="margin-left: 0; margin-top: 80px;">
+        <div id="videogame" style="margin-left: 0; margin-top: 0px;">
             <div class="color-changer">
                 <div class="color-panel">
                     <img src="images/gear.png" alt="">
@@ -193,69 +377,95 @@
                     </div>
                 </div>
             </div>
-            <div class="portfolio-header">
-                <h2 class="color">Videojuego VR: La Noche del Huerto</h2>
-                <p class="caption">Cuando la luna sale, los conejos atacan. <span class="color">Lánzalos</span> y <span class="color">protege</span> tus cultivos hasta el amanecer.</p>
-            </div>
             <div id="portfolio-content">
-                <div class="portfolio">
-                    <div class="portfolio-image">
-                        <img src="images/1.png" alt="creacion-idea">
-                    </div>  
-                    <div class="portfolio-text">
-                        <h2>Creación de la Idea</h2>
-                        <p>
-                            Definimos la idea base, las mecánicas principales. Establecimos la visión del juego a partir de referencias y primeras pruebas conceptuales.
-                        </p>
+                <!-- Grid de Flip Cards -->
+                <div class="grid-container">
+                    <!-- Flip Card 0: Título del Proyecto -->
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front title-front">
+                                <img src="images/logo1.png" alt="La Noche del Huerto Logo" class="title-logo">
+                                <h2>La Noche del Huerto</h2>
+                                <span class="subtitle">Videojuego VR</span>
+                            </div>
+                            <div class="flip-card-back">
+                                <h3>La Noche del Huerto</h3>
+                                <p>Cuando la luna sale, los conejos atacan. Lánzalos y protege tus cultivos hasta el amanecer. Una experiencia inmersiva en realidad virtual.</p>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="portfolio">
-                    <div class="portfolio-image">
-                        <img src="images/2.jpeg" alt="sketching">
+                    
+                    <!-- Flip Card 1: Creación de la Idea -->
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <img src="images/1.png" alt="creacion-idea">
+                                <h3>Creación de la Idea</h3>
+                            </div>
+                            <div class="flip-card-back">
+                                <h3>Creación de la Idea</h3>
+                                <p>Definimos la idea base, las mecánicas principales. Establecimos la visión del juego a partir de referencias y primeras pruebas conceptuales.</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="portfolio-text">
-                        <h2>Bocetos</h2>
-                        <p>
-                            Diseñamos los primeros conceptos visuales del entorno y los personajes.
-                            Exploramos la atmósfera, el estilo artístico y la disposición del huerto.
-                        </p>
+                    
+                    <!-- Flip Card 2: Bocetos -->
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <img src="images/2.jpeg" alt="bocetos">
+                                <h3>Bocetos</h3>
+                            </div>
+                            <div class="flip-card-back">
+                                <h3>Bocetos</h3>
+                                <p>Diseñamos los primeros conceptos visuales del entorno y los personajes. Exploramos la atmósfera, el estilo artístico y la disposición del huerto.</p>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="portfolio">
-                    <div class="portfolio-image">
-                        <img src="images/3.jpeg" alt="storyboard">
-                    </div>  
-                    <div class="portfolio-text">
-                        <h2>Maqueta</h2>
-                        <p>
-                           Elaboramos una maqueta física para evaluar escala, accesibilidad e interacción.
-                           Ajustamos la distribución espacial para optimizar la inmersión virtual.
-                        </p>
-                        <div class="button"><a href="https://youtu.be/iUCLPpcqA8M" target="_blank"><button><span class="index"> Video de la Maqueta <i class="gg-arrow-right"></i></span></button></a></div>
+                    
+                    <!-- Flip Card 3: Maqueta -->
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <img src="images/3.jpeg" alt="maqueta">
+                                <h3>Maqueta</h3>
+                            </div>
+                            <div class="flip-card-back">
+                                <h3>Maqueta</h3>
+                                <p>Elaboramos una maqueta física para evaluar escala, accesibilidad e interacción. Ajustamos la distribución espacial para optimizar la inmersión virtual.</p>
+                                <a href="https://youtu.be/iUCLPpcqA8M" target="_blank" class="btn">Video de la Maqueta</a>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="portfolio">
-                    <div class="portfolio-image">
-                        <img src="images/4.png" alt="prototipo de baja fidelidad">
-                    </div>  
-                    <div class="portfolio-text">
-                        <h2>Prototipo Inicial</h2>
-                        <p>
-                           Desarrollamos la primera versión jugable en VR con las mecánicas básicas. Enfocados en las interacciones de manos para sembrar y defender el huerto.
-                        </p>
-                        <div class="button"><a href="https://www.youtube.com/playlist?list=PLnt6LRXiyxJ_gVM8NwsArl4aMKt9lq8la" target="_blank"><button><span class="index"> Ver Videos del Prototipo <i class="gg-arrow-right"></i></span></button></a></div>
+                    
+                    <!-- Flip Card 4: Prototipo Inicial -->
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <img src="images/4.png" alt="prototipo-inicial">
+                                <h3>Prototipo Inicial</h3>
+                            </div>
+                            <div class="flip-card-back">
+                                <h3>Prototipo Inicial</h3>
+                                <p>Desarrollamos la primera versión jugable en VR con las mecánicas básicas. Enfocados en las interacciones de manos para sembrar y defender el huerto.</p>
+                                <a href="https://www.youtube.com/playlist?list=PLnt6LRXiyxJ_gVM8NwsArl4aMKt9lq8la" target="_blank" class="btn">Ver Videos del Prototipo</a>
+                            </div>
+                        </div>
                     </div>
-                </div>
-                <div class="portfolio">
-                    <div class="portfolio-image">
-                        <img src="images/proto.png" alt="prototipo: evaluacion">
-                    </div>  
-                    <div class="portfolio-text">
-                        <h2>Evaluación del Prototipo Final</h2>
-                        <p>
-                            Este es el prototipo final, pulido gracias a las pruebas con usuarios. El feedback recibido nos permitió balancear la dificultad y refinar las mecánicas de juego.
-                        </p>
-                        <div class="button"><a href="https://youtu.be/U9o1zrAMkec" target="_blank" rel="noopener noreferrer"><button><span class="index"> Ver Jugabilidad Final <i class="gg-arrow-right"></i></span></button></a></div>
+                    
+                    <!-- Flip Card 5: Evaluación del Prototipo Final -->
+                    <div class="flip-card">
+                        <div class="flip-card-inner">
+                            <div class="flip-card-front">
+                                <img src="images/proto.png" alt="prototipo: evaluacion">
+                                <h3>Evaluación del Prototipo Final</h3>
+                            </div>
+                            <div class="flip-card-back">
+                                <h3>Evaluación del Prototipo Final</h3>
+                                <p>Este es el prototipo final, pulido gracias a las pruebas con usuarios. El feedback recibido nos permitió balancear la dificultad y refinar las mecánicas de juego.</p>
+                                <a href="https://youtu.be/U9o1zrAMkec" target="_blank" rel="noopener noreferrer" class="btn">Ver Jugabilidad Final</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -265,108 +475,93 @@
         <!--videogame end-->
 
         <!--final-project-->
-        <div id="final-project" style="margin-left: 0; margin-top: 80px;">
-            <div class="color-changer">
-                <div class="color-panel">
-                    <img src="images/gear.png" alt="">
+        <div id="final-project" style="margin-left: 0; margin-top: 0px;">
+            <!-- Grid de Flip Cards -->
+            <div class="grid-container">
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="images/Logo.jpg" alt="Clean Reception">
+                            <h3>Clean Reception</h3>
+                        </div>
+                        <div class="flip-card-back">
+                            <h3>Clean Reception</h3>
+                            <p>Plataforma de gestión inteligente para hostales.</p>
+                        </div>
+                    </div>
                 </div>
-                <div class="color-selector">
-                    <div class="heading">Colores para daltónicos</div>
-                    <div class="colors">
-                        <ul >
-                        <li>
-                            <a href="#0" class="color-red " title="color-red"></a>
-                        </li>
-                        <li>
-                            <a href="#0" class="color-purple" title="color-purple"></a>
-                        </li>
-                        <li>
-                            <a href="#0" class="color-green" title="color-green"></a>
-                        </li>
-                        <li>
-                            <a href="#0" class="color-blue" title="color-blue"></a>
-                        </li>
-                        </ul>
+
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="images/Propuestaa.jpg" alt="Propuesta">
+                            <h3>Propuesta</h3>
+                        </div>
+                        <div class="flip-card-back">
+                            <h3>Propuesta</h3>
+                            <p>Reducir la carga cognitiva del recepcionista.</p>
+                            <a href="docs/Propuesta_CleanReception_Etapa1.pdf" target="_blank" class="btn">Ver Documento</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="images/Necesidades.jpg" alt="Necesidades">
+                            <h3>Necesidades</h3>
+                        </div>
+                        <div class="flip-card-back">
+                            <h3>Needfinding</h3>
+                            <p>Entrevistas y análisis de usuarios.</p>
+                            <a href="docs/Grupo5_Needfinding.pdf" target="_blank" class="btn">Ver Documento</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="images/Storyboardd.jpg" alt="Storyboard">
+                            <h3>Storyboard</h3>
+                        </div>
+                        <div class="flip-card-back">
+                            <h3>Storyboard</h3>
+                            <p>Flujo visual de la solución.</p>
+                            <a href="docs/StoryboardPROTOTIPODEBAJAFIDELIDAD.pdf" target="_blank" class="btn">Ver Documento</a>
+                            <a href="https://youtube.com/shorts/UExAzegYIh4?feature=share" target="_blank" class="btn">Ver Video</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="images/Mockups.jpg" alt="Mockups">
+                            <h3>Mockups</h3>
+                        </div>
+                        <div class="flip-card-back">
+                            <h3>Mockups</h3>
+                            <p>Diseño de interfaces (UI).</p>
+                            <a href="docs/Mockups.pdf" target="_blank" class="btn">Ver Documento</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="images/PrototipoDeAltaFidelidad.jpg" alt="Alta Fidelidad">
+                            <h3>Alta Fidelidad</h3>
+                        </div>
+                        <div class="flip-card-back">
+                            <h3>Prototipo Final</h3>
+                            <p>Versión interactiva final.</p>
+                            <a href="https://drive.google.com/file/d/172NFMREz0es0dLwO8uKEpzb7vALEy4a9/view?usp=sharing" target="_blank" class="btn">Prototipo Final</a>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="blog-header">
-                <h2 class="color">Proyecto Final: Clean Reception</h2>
-                <p class="header-caption">
-                    Una plataforma de gestión inteligente para hostales. Reduce la <span class="color">carga cognitiva</span> del personal y permite pasar de un servicio <span class="color">reactivo</span> a una hospitalidad <span class="color">proactiva</span>.
-                </p>
-                <div class="wrapper">
-                    <div class="center-line">
-                      <a href="#" class="scroll-icon"><i class="fas fa-caret-up"></i></a>
-                    </div>
-                    <div class="row row-1">
-                      <section>
-                        <i class="icon fas fa-home"></i>
-                        <div class="details">
-                          <span class="title">Propuesta de Proyecto</span>
-                          <span>16/10/2025</span>
-                        </div>
-                        <p> La propuesta es organizar las múltiples tareas del recepcionista de hostel. Queremos reducir su carga de trabajo para que puedan ofrecer un servicio más atento y proactivo.</p>
-                        <div class="botton-container">
-                        <div class="bottom">
-                            <a href="docs/Propuesta_CleanReception_Etapa1.pdf" target="_blank" rel="noopener noreferrer">Ver Propuesta</a>
-                          </div>
-                        </div>
-                      </section>
-                    </div>
-                    <div class="row row-2">
-                        <section>
-                          <i class="icon fas fa-star"></i>
-                          <div class="details">
-                            <span class="title">Busqueda de necesidades</span>
-                            <span>06/11/2025</span>
-                          </div>
-                          <p>Entrevistamos a 3 perfiles de recepcionista (Novato, Intermedio y Experto) para descubrir sus necesidades. Identificamos problemas de sobrecarga cognitiva, dependencia de expertos y soluciones temporales en lugar de un sistema unificado.</p>
-                            <div class="botton-container">
-                                <div class="bottom">
-                                    <a href="docs/Grupo5_Needfinding.pdf" target="_blank" rel="noopener noreferrer">Ver Presentación</a>
-                                  </div>
-                                </div>
-                        </section>
-                      </div>
-                      <div class="row row-1">
-                        <section>
-                          <i class="icon fas fa-rocket"></i>
-                          <div class="details">
-                            <span class="title">Storyboard</span>
-                            <span>06/11/2025</span>
-                          </div>
-                          <p>Creamos historias visuales del día a día de un recepcionista. Esto nos ayudó a diseñar un flujo de trabajo claro que soluciona los problemas de desorden y sobrecarga de tareas.</p>
-                          <div class="botton-container">
-                            <div class="bottom">
-                                <a href="https://youtube.com/shorts/UExAzegYIh4?feature=share" target="_blank" rel="noopener noreferrer">Video del Storyboard</a>
-                              </div>
-                            </div>
-                        </section>
-                      </div>
-                      <div class="row row-2">
-                        <section>
-                          <i class="icon fas fa-globe"></i>
-                          <div class="details">
-                            <span class="title">MOCKUPS</span>
-                            <span>../11/2025</span>
-                          </div>
-                          <p>...</p>
-                         
-                        </section>
-                      </div>
-                      <div class="row row-1">
-                        <section>
-                          <i class="icon fas fa-paper-plane"></i>
-                          <div class="details">
-                            <span class="title">Prototipo de alta fidelidad</span>
-                            <span>../11/2025</span>
-                          </div>
-                          <p>...</p>
-
-                        </section>
-                      </div>
-                    </div>
         </div>
         <!--final-project end-->
         
